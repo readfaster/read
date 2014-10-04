@@ -1,6 +1,7 @@
 package io.calhax.quickread;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,32 +20,22 @@ public class SpeedReader extends Activity {
     TextView flash_me;
     int WPM=600;
     int index = 0;
-    String[] words = "Hi Gurjit this is a test of the flashy word app on Glass using 600 words per minute".split(" ");
+    //String[] words = "Hi Gurjit this is a test of the flashy word app on Glass using 600 words per minute".split(" ");
+    String[] words;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        String toSplit = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        words = toSplit.split(" ");
+
         setContentView(R.layout.activity_speed_reader);
         flash_me = (TextView)findViewById(R.id.flash);
         //flash_me.setText("EXCEEDINGMAXCHARLIMIT");
 
         //now we go GET the json
-        /*HttpClient client = new DefaultHttpClient();
-        String URL = "http://m.uploadedit.com/b041/14124339688.txt";
-        try {
-            HttpGet get = new HttpGet(URL);
-            ResponseHandler<String> response = new BasicResponseHandler();
-            String result = client.execute(get, response);
-            JSONObject obj = new JSONObject(result);
-            String txt = obj.getString("text");
-            words = txt.split(" ");
-
-        }
-        catch (Exception ex) {
-            flash_me.setText("failed GET");
-        }*/
-
-
+        //String URL = "http://m.uploadedit.com/b041/14124339688.txt";
     }
 
     private Handler handle = new Handler();
@@ -62,6 +53,7 @@ public class SpeedReader extends Activity {
                 handle.postDelayed(timer, 60000/WPM);
             }
         }
+        //TODO add pause at . and ,
     };
 
     @Override

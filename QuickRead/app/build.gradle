@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 repositories {
-        jcenter()
+    jcenter()
     flatDir {
         dirs 'prebuilt-libs'
     }
 }
 
 android {
-    compileSdkVersion 'Google Inc.:Glass Development Kit Preview:19'
+    compileSdkVersion "Google Inc.:Glass Development Kit Preview:19"
     buildToolsVersion "20.0.0"
 
     defaultConfig {
