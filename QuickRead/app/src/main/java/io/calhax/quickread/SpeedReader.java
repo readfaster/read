@@ -6,6 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.os.Handler;
+import org.apache.http.client.*;
+
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
 
 
 public class SpeedReader extends Activity {
@@ -13,7 +19,7 @@ public class SpeedReader extends Activity {
     TextView flash_me;
     int WPM=600;
     int index = 0;
-    String[] words = "This is a test at 600 words per minute of the glass speed reading app".split(" ");
+    String[] words = "Hi Gurjit this is a test of the flashy word app on Glass using 600 words per minute".split(" ");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +27,40 @@ public class SpeedReader extends Activity {
         setContentView(R.layout.activity_speed_reader);
         flash_me = (TextView)findViewById(R.id.flash);
         //flash_me.setText("EXCEEDINGMAXCHARLIMIT");
+
+        //now we go GET the json
+        /*HttpClient client = new DefaultHttpClient();
+        String URL = "http://m.uploadedit.com/b041/14124339688.txt";
+        try {
+            HttpGet get = new HttpGet(URL);
+            ResponseHandler<String> response = new BasicResponseHandler();
+            String result = client.execute(get, response);
+            JSONObject obj = new JSONObject(result);
+            String txt = obj.getString("text");
+            words = txt.split(" ");
+
+        }
+        catch (Exception ex) {
+            flash_me.setText("failed GET");
+        }*/
+
+
     }
 
     private Handler handle = new Handler();
     private Runnable timer = new Runnable() {
         @Override
         public void run() {
-            if (index < words.length) {
+            if (index == 0) {
                 flash_me.setText(words[index]);
                 index++;
+                handle.postDelayed(timer, 2000);
             }
-            handle.postDelayed(timer, 60000/WPM);
+            else if (index < words.length) {
+                flash_me.setText(words[index]);
+                index++;
+                handle.postDelayed(timer, 60000/WPM);
+            }
         }
     };
 
