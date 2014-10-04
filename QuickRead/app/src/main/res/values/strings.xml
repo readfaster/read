@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Quick Read</string>
+    <string name="glass_voice_trigger">start speed reading</string>
+    <string name="title_activity_speed_reader">SpeedReader</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
