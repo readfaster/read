@@ -12,10 +12,14 @@
         <activity
             android:name=".SpeedReader"
             android:label="@string/title_activity_speed_reader"
-            android:immersive="true" >
+            android:immersive="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="com.google.android.glass.action.VOICE_TRIGGER"/>
             </intent-filter>
+            <meta-data
+                android:name="com.google.android.glass.VoiceTrigger"
+                android:resource="@xml/start_speed_reading" />
         </activity>
     </application>
 
