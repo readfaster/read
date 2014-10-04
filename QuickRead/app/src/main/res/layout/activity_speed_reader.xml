@@ -9,8 +9,11 @@
     tools:context="io.calhax.quickread.SpeedReader">
 
     <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:id="@+id/flash"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:textSize="52sp"
+        android:fontFamily="sans-serif-thin"/>
 
 </RelativeLayout>
