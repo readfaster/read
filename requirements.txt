@@ -1,13 +1,2 @@
 Django==1.7
-ipython==3.0.0-dev
-jsonpointer==1.4
-jsonschema==2.4.0
-matplotlib==1.4.0
-numpy==1.8.2
-pyparsing==2.0.2
-python-dateutil==2.2
-pyzmq==14.3.1
-scipy==0.14.0
-six==1.7.3
 virtualenv==1.11.6
-wsgiref==0.1.2
