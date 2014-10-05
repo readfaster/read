@@ -3,8 +3,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate
 from models import *
-from file_util import *
-#from readability import parse_url
+from readability import parse_url
 import json
 
 # Create your views here.
@@ -32,6 +31,29 @@ def get_article(request,article_id):
 	return HttpResponse(json.dumps(response_data),content_type="application/json")
 
 @csrf_exempt
+def delete_article(request):
+	if request.method == "GET":
+		return HttpResponse(status=400)
+	username = request.POST['username']
+	password = request.POST.get('password',default="")
+	article_id = request.POST['id']
+	try:
+		article_id = int(article_id)
+	except ValueError as e:
+		response_data = {'error':"invalid id, id is not a number"}
+		return HttpResponse(json.dumps(response_data),content_type="application/json",status=400)
+	article = None
+	try:
+		article = Article.objects.get(id=article_id)
+		article.delete()
+	except Exception as e:
+		response_data = {'error':"invalid id, id not present"}
+		return HttpResponse(json.dumps(response_data),content_type="application/json",status=400)
+
+	response_data = {'text':"'{0}' deleted".format(article.title)}
+	return HttpResponse(json.dumps(response_data),content_type="application/json")
+
+@csrf_exempt
 def get_all_user_articles(request):
 	if request.method == "GET":
 		return HttpResponse(status=400)
@@ -45,7 +67,7 @@ def get_all_user_articles(request):
 		response_data = {"articles":articles}
 		for article in profile.articles.all():
 			date_string = "{0}-{1}-{2}".format(article.date_uploaded.month,article.date_uploaded.day,article.date_uploaded.year)
-			article_json = {"title":article.title,"text":article.text,"date":date_string}
+			article_json = {"title":article.title,"text":article.text,"date":date_string,"id":article.id}
 			articles.append(article_json)
 		return HttpResponse(json.dumps(response_data),content_type="application/json",status=200)
 	else:
@@ -64,8 +86,8 @@ def post_article(request):
 	user = authenticate(username=username,password=password)
 	if user:
 		profile = UserProfile.objects.get(user=user)
-		##text = parse_url(url)["content"]
-		article = Article(title="some title",text="some text")
+		content = parse_url(url)
+		article = Article(title=content["title"],text=content["content"])
 		article.has_text = True
 		article.date_uploaded = datetime.now()
 		article.save()
