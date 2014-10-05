@@ -69,20 +69,25 @@ public class MainActivity extends Activity {
         String username = fetch.getEmail(this);
         System.out.println(username);
         try {
-            new POST().execute("username", username);
-            new POST().execute("password", "a24cws435");
+            //new POST().execute("username", username);
+            dataHttp = new POST().execute("gurjit").get();
+            //postAsync.execute("gurjit");
+            //dataHttp = postAsync.get();
+            //new POST().execute("password", "a24cws435");
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
         //now we're authorized, go!
-        try{
-            dataHttp = new JSONParsee().execute("http://m.uploadedit.com/b041/1412483757410.txt").get();
+        /*try{
+            //dataHttp = new JSONParsee().execute("http://hack.allen.li/api/v1/articles/get.json").get();
+            dataHttp = new JSONGet().execute().get();
+
         }
         catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
         System.out.println(dataHttp);
 
         try {

@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="io.calhax.quickreadmobile.ListActivity">
+
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:divider="@drawable/divider"
+        android:dividerHeight="1px" />
+
+    <ImageButton
+        android:id="@+id/fab"
+        android:text="+"
+        android:textSize="40sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ripple"
+        android:stateListAnimator="@anim/anim"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-light"
+        android:src="@drawable/ic_action_add"
+        />
+
+</RelativeLayout>

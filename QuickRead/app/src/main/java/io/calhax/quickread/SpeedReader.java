@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.os.Handler;
 import org.apache.http.client.*;
@@ -25,6 +26,7 @@ public class SpeedReader extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Intent intent = getIntent();
         String toSplit = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         words = toSplit.split(" ");
