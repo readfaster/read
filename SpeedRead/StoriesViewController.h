@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  StoriesViewController.h
 //  SpeedRead
 //
 //  Created by Paul on 10/5/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface StoriesViewController : UIViewController
 
 @end
-
