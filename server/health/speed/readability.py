@@ -15,10 +15,11 @@ def parse_url(url):
   response = requests.get(READABILITY_URL, params=payload)
   if response.status_code != 200:
     print "status code not 200: %d" % response.status_code
-    return r.content
+    return response.content
   j = response.json()
-  j['content'] = strip_html(j['content'])
+  j['content'] = (strip_html(j['content']).encode('utf-8')).replace('\n',' ')
   return j
 
 def strip_html(content):
   return BeautifulSoup(content).get_text()
+

@@ -9,7 +9,7 @@ class Article(models.Model):
 	date_uploaded = models.DateField(default=datetime.now())
 
 	def __unicode__(self):
-		return self.title
+		return self.title + "," + self,str(date_uploaded)
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
