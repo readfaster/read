@@ -70,7 +70,8 @@ public class MainActivity extends Activity {
         System.out.println(username);
         try {
             //new POST().execute("username", username);
-            dataHttp = new POST().execute("gurjit").get();
+            //dataHttp = new POST().execute("gurjit").get();
+            dataHttp = new POST().execute(username).get();
             //postAsync.execute("gurjit");
             //dataHttp = postAsync.get();
             //new POST().execute("password", "a24cws435");

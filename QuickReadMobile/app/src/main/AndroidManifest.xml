@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.calhax.quickreadmobile" >
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +14,10 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".MListActivity"
+            android:label="@string/title_activity_list" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,8 +25,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MListActivity"
-            android:label="@string/title_activity_list" >
+            android:name=".AddRead"
+            android:label="@string/title_activity_add_read" >
+            <intent-filter android:label="Read" android:priority="999">
+                <data android:mimeType="*/*" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+            </intent-filter>
         </activity>
     </application>
 

@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="io.calhax.quickreadmobile.AddRead" >
+    <item android:id="@+id/donebutton"
+        android:title="Done"
+        android:text="Done"
+        android:showAsAction="always"/>
+</menu>

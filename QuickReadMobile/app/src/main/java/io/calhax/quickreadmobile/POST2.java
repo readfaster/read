@@ -25,25 +25,27 @@ import java.util.List;
  * Created by james on 10/5/14.
  */
 
-public class POST extends AsyncTask<String, Void, String> {
+public class POST2 extends AsyncTask<String, Void, String> {
     String output;
     @Override
     protected String doInBackground(String... params) {
         // TODO Auto-generated method stub
-        postData(params[0], params[1]);
+        postData(params[0], params[1], params[2]);
         return output;
     }
 
-    public String postData(String username, String urll) {
+    public String postData(String username, String urll, String url2) {
         // Create a new HttpClient and Post Header
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(urll);
+        HttpPost httppost = new HttpPost(url2);
 
 
         // Add your data
         BasicNameValuePair usernameBasicNameValuePair = new BasicNameValuePair("username", username);
+        BasicNameValuePair urlBasicNameValuePair = new BasicNameValuePair("url", urll);
         List<NameValuePair> nameValuePairList = new ArrayList<NameValuePair>();
         nameValuePairList.add(usernameBasicNameValuePair);
+        nameValuePairList.add(urlBasicNameValuePair);
 
         try {
             // UrlEncodedFormEntity is an entity composed of a list of url-encoded pairs.

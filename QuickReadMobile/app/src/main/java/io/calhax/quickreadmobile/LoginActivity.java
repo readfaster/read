@@ -2,6 +2,7 @@ package io.calhax.quickreadmobile;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,36 +18,25 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("in login");
         setTheme(R.style.SplashTheme);
         setContentView(R.layout.activity_login);
         UserEmailFetcher fetch = new UserEmailFetcher();
-        String username = fetch.getEmail(this);
-        EditText editText = (EditText) findViewById(R.id.email_address);
+        final String username = fetch.getEmail(this);
+        final EditText editText = (EditText) findViewById(R.id.email_address);
         editText.setText(username);
 
-        final Button button = (Button) findViewById(R.id.button); //login
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendMessage(view);
-            }
-        });
         final Button button2 = (Button) findViewById(R.id.button2); //create
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendMessage2(view);
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("Read", 0);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("id", editText.getText().toString());
+                editor.commit();
             }
         });
-    }
-
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, MListActivity.class);
-        EditText editText = (EditText) findViewById(R.id.email_address);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        intent.putExtra(EXTRA_MESSAGE1, "true");
-        startActivity(intent);
     }
 
     public void sendMessage2(View view) {
@@ -55,7 +45,13 @@ public class LoginActivity extends Activity {
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         intent.putExtra(EXTRA_MESSAGE1, "true");
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("Read", 0);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean("loggd", true);
+        editor.commit();
         startActivity(intent);
+        finish();
+        return;
     }
 
     @Override

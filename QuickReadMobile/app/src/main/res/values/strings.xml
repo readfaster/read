@@ -4,9 +4,10 @@
     <string name="app_name">QuickReadMobile</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="new_account">New Account</string>
+    <string name="new_account">Sign In with your Glass email!</string>
     <string name="username">username</string>
     <string name="login">Login</string>
-    <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_list">Saved to Read</string>
+    <string name="title_activity_add_read">Add to Read</string>
 
 </resources>
