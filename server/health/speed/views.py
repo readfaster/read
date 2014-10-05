@@ -115,7 +115,7 @@ def add_user(request):
 		if new_user:
 			new_user.delete()
 		response_data = {'error':"username already exists"}
-		return HttpResponse(json.dumps(response_data),content_type="application/json")
+		return HttpResponse(json.dumps(response_data),content_type="application/json",status=400)
 	u1.save()
 	response_data = {'error':"none"}
 	return HttpResponse(json.dumps(response_data),content_type="application/json")
