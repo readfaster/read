@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -40,43 +42,60 @@ public class MainActivity extends Activity {
 
     private List<CardBuilder> mCards;
     private  CustomCardScrollAdapter mAdapter;
-    JSONArray articles;
+    JSONArray js0n;
     ArrayList<String> adapt;
     ArrayList<String> contents;
-    JSONObject json;
 
     String pass;
     public final static String EXTRA_MESSAGE = "ARTICLE_TEXT";
 
     @Override
     protected void onCreate(Bundle bundle) {
+        Log.w("trying", "asdf");
         super.onCreate(bundle);
-
         //mView = buildView();
-
+        /*if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }*/
+        String dataHttp = null;
         adapt = new ArrayList<String>();
-
-        new JSONParse().execute();
-
+        contents = new ArrayList<String>();
+        try{
+            dataHttp = new JSONParsee().execute("http://m.uploadedit.com/b041/1412460692157.txt").get();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(dataHttp);
 
         try {
-            articles = json.getJSONArray("article");
-            for (int i=0; i<articles.length(); i++) {
-                JSONObject u = articles.getJSONObject(i);
+            js0n = new JSONArray(dataHttp);
+            for (int i=0; i<js0n.length(); i++) {
+                JSONObject u = js0n.getJSONObject(i);
+                System.out.println("U IS " + u);
                 String title = u.getString("title");
+                System.out.println("TITLE IS " + title);
                 String cont = u.getString("contents");
                 adapt.add(title);
                 contents.add(cont);
             }
         }
-        catch (JSONException e) {
+        catch (Exception e) {
+            //malformed json from serv3r
             e.printStackTrace();
         }
 
-        mAdapter = new CustomCardScrollAdapter();
+        System.out.println(adapt.toString());
+        System.out.println(contents.toString());
 
+        createCards();
+
+        mAdapter = new CustomCardScrollAdapter();
         mCardScroller = new CardScrollView(this);
         mCardScroller.setAdapter(mAdapter);
+        setContentView(mCardScroller);
+
         mCardScroller.activate();
         mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -88,7 +107,7 @@ public class MainActivity extends Activity {
                 sendMessage(view);
             }
         });
-        setContentView(mCardScroller);
+
     }
 
     @Override
@@ -105,12 +124,28 @@ public class MainActivity extends Activity {
 
     private void createCards() {
         mCards = new ArrayList<CardBuilder>();
-
-        for (int i = 0; i < articles.length(); i++) {
+        System.out.println("adapt size " + adapt.size());
+        for (int i = 0; i < adapt.size(); i++) {
+            System.out.println("GETTING FROM ARRAY " + adapt.get(i));
             mCards.add(new CardBuilder(this, CardBuilder.Layout.TEXT).setText(adapt.get(i)));
 
         }
-    }
+    }/*
+    private void createCards() {
+        mCards = new ArrayList<CardBuilder>();
+
+        mCards.add(new CardBuilder(this, CardBuilder.Layout.TEXT)
+        .setText("This card has a footer.")
+        .setFootnote("I'm the footer!"));
+
+        mCards.add(new CardBuilder(this, CardBuilder.Layout.CAPTION)
+        .setText("This card has a puppy background image.")
+        .setFootnote("How can you resist?"));
+
+        mCards.add(new CardBuilder(this, CardBuilder.Layout.COLUMNS)
+        .setText("This card has a mosaic of puppies.")
+        .setFootnote("Aren't they precious?"));
+    }*/
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, SpeedReader.class);
@@ -147,14 +182,6 @@ public class MainActivity extends Activity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             return mCards.get(position).getView(convertView, parent);
-        }
-    }
-
-    private class JSONParse extends AsyncTask<String, String, JSONObject> {
-        protected JSONObject doInBackground(String... args) {
-            JSONGet js = new JSONGet();
-            json =  js.getJSONhttp("http://m.uploadedit.com/b041/1412460692157.txt");
-            return json;
         }
     }
 
