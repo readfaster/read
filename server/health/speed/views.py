@@ -4,9 +4,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate
 from models import *
 from file_util import *
+#from readability import parse_url
 import json
 
 # Create your views here.
+
 def test_get(request):
 	response_data = {'text':"hello world this is a test "}
 	return HttpResponse(json.dumps(response_data),content_type="application/json")
@@ -17,8 +19,10 @@ def get_article(request,article_id):
 		article_id = int(article_id)
 	except ValueError as e:
 		return HttpResponse(json.dumps(response_data),content_type="application/json",status=400)
+
 	if article_id == 0 or article_id > len(Article.objects.all()):
 		return HttpResponse(json.dumps(response_data),content_type="application/json",status=400)
+
 	article = Article.objects.get(id=article_id)
 	if not article.has_text:
 		response_data = {'error':"no content"}
@@ -32,7 +36,7 @@ def get_all_user_articles(request):
 	if request.method == "GET":
 		return HttpResponse(status=400)
 	username = request.POST['username']
-	password = request.POST['password']
+	password = request.POST.get('password',default="")
 
 	user = authenticate(username=username,password=password)
 	if user:
@@ -40,11 +44,12 @@ def get_all_user_articles(request):
 		articles = []
 		response_data = {"articles":articles}
 		for article in profile.articles.all():
-			article_json = {"title":article.title,"text":article.text}
+			date_string = "{0}-{1}-{2}".format(article.date_uploaded.month,article.date_uploaded.day,article.date_uploaded.year)
+			article_json = {"title":article.title,"text":article.text,"date":date_string}
 			articles.append(article_json)
 		return HttpResponse(json.dumps(response_data),content_type="application/json",status=200)
 	else:
-		response_data = {'text':"authentication failed"}
+		response_data = {'error':"authentication failed"}
 		return HttpResponse(json.dumps(response_data),content_type="application/json",status=400)
 
 
@@ -53,22 +58,24 @@ def post_article(request):
 	if request.method == "GET":
 		return HttpResponse(status=400)
 	username = request.POST['username']
-	password = request.POST['password']
+	password = request.POST.get('password',default="")
 	url      = request.POST['url']
 
 	user = authenticate(username=username,password=password)
 	if user:
 		profile = UserProfile.objects.get(user=user)
+		##text = parse_url(url)["content"]
 		article = Article(title="some title",text="some text")
 		article.has_text = True
+		article.date_uploaded = datetime.now()
 		article.save()
 		profile.articles.add(article)
 		profile.save()
-		t1 = profile.articles.all()[0].title
-		response_data = {'text':"hello world this is a test of post " + t1}
+		url = "{0}/api/v1/article/{1}/show.json".format(request.get_host(),article.id)
+		response_data = {'url':url}
 		return HttpResponse(json.dumps(response_data),content_type="application/json",status=200)
 	
-	response_data = {'text':"authentication failed"}
+	response_data = {'error':"authentication failed"}
 	return HttpResponse(json.dumps(response_data),content_type="application/json",status=400)
 
 @csrf_exempt
@@ -76,7 +83,7 @@ def add_user(request):
 	if request.method == "GET":
 		return HttpResponse(status=400)
 	username = request.POST['username']
-	password = request.POST['password']
+	password = request.POST.get('password',default="")
 
 	new_user = None
 	try:
