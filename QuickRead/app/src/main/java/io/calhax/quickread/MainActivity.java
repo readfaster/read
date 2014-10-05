@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,16 +43,16 @@ public class MainActivity extends Activity {
 
     private List<CardBuilder> mCards;
     private  CustomCardScrollAdapter mAdapter;
-    JSONArray js0n;
+    JSONObject js1n;
     ArrayList<String> adapt;
     ArrayList<String> contents;
+    ArrayList<String> dates;
 
     String pass;
     public final static String EXTRA_MESSAGE = "ARTICLE_TEXT";
 
     @Override
     protected void onCreate(Bundle bundle) {
-        Log.w("trying", "asdf");
         super.onCreate(bundle);
         //mView = buildView();
         /*if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -61,8 +62,23 @@ public class MainActivity extends Activity {
         String dataHttp = null;
         adapt = new ArrayList<String>();
         contents = new ArrayList<String>();
+        dates = new ArrayList<String>();
+
+        //POST user and pass to server
+        UserEmailFetcher fetch = new UserEmailFetcher();
+        String username = fetch.getEmail(this);
+        System.out.println(username);
+        try {
+            new POST().execute("username", username);
+            new POST().execute("password", "a24cws435");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //now we're authorized, go!
         try{
-            dataHttp = new JSONParsee().execute("http://m.uploadedit.com/b041/1412460692157.txt").get();
+            dataHttp = new JSONParsee().execute("http://m.uploadedit.com/b041/1412483757410.txt").get();
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -70,15 +86,18 @@ public class MainActivity extends Activity {
         System.out.println(dataHttp);
 
         try {
-            js0n = new JSONArray(dataHttp);
+            js1n = new JSONObject(dataHttp);
+            JSONArray js0n = js1n.getJSONArray("articles");
             for (int i=0; i<js0n.length(); i++) {
                 JSONObject u = js0n.getJSONObject(i);
                 System.out.println("U IS " + u);
                 String title = u.getString("title");
                 System.out.println("TITLE IS " + title);
-                String cont = u.getString("contents");
+                String cont = u.getString("text");
+                String dat = u.getString("date");
                 adapt.add(title);
                 contents.add(cont);
+                dates.add(dat);
             }
         }
         catch (Exception e) {
@@ -127,7 +146,7 @@ public class MainActivity extends Activity {
         System.out.println("adapt size " + adapt.size());
         for (int i = 0; i < adapt.size(); i++) {
             System.out.println("GETTING FROM ARRAY " + adapt.get(i));
-            mCards.add(new CardBuilder(this, CardBuilder.Layout.TEXT).setText(adapt.get(i)));
+            mCards.add(new CardBuilder(this, CardBuilder.Layout.TEXT).setText(adapt.get(i)).setFootnote(dates.get(i)));
 
         }
     }/*
