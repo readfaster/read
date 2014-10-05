@@ -17,7 +17,8 @@ def parse_url(url):
     print "status code not 200: %d" % response.status_code
     return r.content
   j = response.json()
-  return strip_html(j['content'])
+  j['content'] = strip_html(j['content'])
+  return j
 
 def strip_html(content):
   return BeautifulSoup(content).get_text()
