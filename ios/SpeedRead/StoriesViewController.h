@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StoriesViewController : UIViewController
+@interface StoriesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+    @property NSArray *exercises;
+    @property NSMutableData *responseData;
 
 @end
