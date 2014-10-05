@@ -65,7 +65,7 @@ def get_all_user_articles(request):
 		profile = UserProfile.objects.get(user=user)
 		articles = []
 		response_data = {"articles":articles}
-		for article in profile.articles.all():
+		for article in profile.articles.order_by("date_uploaded"):
 			date_string = "{0}-{1}-{2}".format(article.date_uploaded.month,article.date_uploaded.day,article.date_uploaded.year)
 			article_json = {"title":article.title,"text":article.text,"date":date_string,"id":article.id}
 			articles.append(article_json)
@@ -115,7 +115,7 @@ def add_user(request):
 		if new_user:
 			new_user.delete()
 		response_data = {'error':"username already exists"}
-		return HttpResponse(json.dumps(response_data),content_type="application/json")
+		return HttpResponse(json.dumps(response_data),content_type="application/json",status=400)
 	u1.save()
 	response_data = {'error':"none"}
 	return HttpResponse(json.dumps(response_data),content_type="application/json")
