@@ -20,7 +20,6 @@ public class SpeedReader extends Activity {
     TextView flash_me;
     int WPM=600;
     int index = 0;
-    //String[] words = "Hi Gurjit this is a test of the flashy word app on Glass using 600 words per minute".split(" ");
     String[] words;
 
     @Override
@@ -42,6 +41,13 @@ public class SpeedReader extends Activity {
     private Runnable timer = new Runnable() {
         @Override
         public void run() {
+            /*if ( index != words.length && words[index].length() != 0 && (words[index].substring(words[index].length()-1) == "." || words[index].substring(words[index].length()-1) == ",")) {
+                System.out.println("here on word " + words[index]);
+
+                flash_me.setText(words[index]);
+                index++;
+                handle.postDelayed(timer, (60000/WPM)*5);
+            }*/
             if (index == 0) {
                 flash_me.setText(words[index]);
                 index++;
