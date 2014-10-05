@@ -1,27 +1,31 @@
 //
-//  StoriesViewController.m
+//  DropboxViewController.m
 //  SpeedRead
 //
 //  Created by Paul on 10/5/14.
 //  Copyright (c) 2014 Aperture Engineering. All rights reserved.
 //
 
-#import "StoriesViewController.h"
-#import <MobileCoreServices/MobileCoreServices.h>
-#import "UNIRest.h"
+#import "DropboxViewController.h"
+#import <DropboxSDK/DBSession.h>
 
-@interface StoriesViewController ()
+@interface DropboxViewController ()
+- (IBAction)didPressLink:(id)sender;
 
 @end
 
-@implementation StoriesViewController
+@implementation DropboxViewController
 
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
@@ -33,13 +37,7 @@
 }
 */
 
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    
-    [super viewDidLoad];
-    
+- (IBAction)didPressLink:(id)sender {
+    [self didPressLink:sender];
 }
-
-
 @end

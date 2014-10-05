@@ -22,15 +22,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="where" translatesAutoresizingMaskIntoConstraints="NO" id="3tA-Bb-muq">
                                 <rect key="frame" x="9" y="90" width="302" height="28"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoy-DW-3hg">
-                                <rect key="frame" x="9" y="538" width="30" height="30"/>
-                                <state key="normal" title="item">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetPW:" destination="1Hk-1j-klk" eventType="touchUpInside" id="jex-DM-gL3"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qP9-a4-Iiz">
                                 <rect key="frame" x="179" y="510" width="119" height="37"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -50,7 +41,16 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yzn-kS-fKi" kind="presentation" id="8U5-w3-re7"/>
+                                    <segue destination="zrw-gx-Te2" kind="presentation" id="hUP-8i-93N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoy-DW-3hg">
+                                <rect key="frame" x="9" y="530" width="30" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetPW:" destination="1Hk-1j-klk" eventType="touchUpInside" id="jex-DM-gL3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,7 +117,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yzn-kS-fKi" kind="presentation" id="JZ5-wa-MyL"/>
+                                    <segue destination="zrw-gx-Te2" kind="presentation" id="UPf-Tn-VDx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQp-pl-jhm">
@@ -148,32 +148,35 @@
             <point key="canvasLocation" x="2271" y="495"/>
         </scene>
         <!--Stories View Controller-->
-        <scene sceneID="Vu3-wt-Odu">
+        <scene sceneID="qcs-Sq-OpL">
             <objects>
-                <viewController id="yzn-kS-fKi" customClass="StoriesViewController" sceneMemberID="viewController">
+                <viewController id="zrw-gx-Te2" customClass="StoriesViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="np9-Nm-low"/>
-                        <viewControllerLayoutGuide type="bottom" id="Enj-g3-5ZO"/>
+                        <viewControllerLayoutGuide type="top" id="Ilj-2o-IU1"/>
+                        <viewControllerLayoutGuide type="bottom" id="4sQ-Vd-1nf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ybf-aJ-w8Z">
+                    <view key="view" contentMode="scaleToFill" id="CWZ-nH-aQY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="f4g-9C-z1x">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITF-SY-phW">
+                                <rect key="frame" x="16" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="IDn-0U-onQ" kind="unwind" unwindAction="exitToHere:" id="DPy-YF-dsk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="tableView" destination="f4g-9C-z1x" id="5b2-dg-GoJ"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TcQ-1z-BoN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xsy-VO-hsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="IDn-0U-onQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2708" y="788"/>
+            <point key="canvasLocation" x="2727" y="513"/>
         </scene>
     </scenes>
     <resources>
@@ -182,6 +185,6 @@
         <image name="where" width="477" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JZ5-wa-MyL"/>
+        <segue reference="hUP-8i-93N"/>
     </inferredMetricsTieBreakers>
 </document>
