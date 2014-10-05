@@ -39,7 +39,7 @@
     
     NSLog(@"%@", self.theUrl);
     
-    _username = [[NSUserDefaults standardUserDefaults] stringForKey:@"Username"];
+    _username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:_theUrl.absoluteString forKey:@"url"];
