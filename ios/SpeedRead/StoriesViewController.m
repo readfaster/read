@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSDictionary *JSONStories;
 @property (nonatomic, strong) NSArray *SortedStories;
+@property (nonatomic, strong) NSString *username;
 
 @end
 
@@ -65,10 +66,11 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     
-    NSDictionary* parameters = @{@"username": [[NSUserDefaults standardUserDefaults] stringForKey:@"username"]};
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
     UNIHTTPJsonResponse* response = [[UNIRest post:^(UNISimpleRequest* request) {
         [request setUrl:@"http://hack.allen.li/api/v1/articles/get.json"];
-        [request setParameters:parameters];
+        [request setParameters:dict];
     }] asJson];
     UNIJsonNode* body = [response body];
     

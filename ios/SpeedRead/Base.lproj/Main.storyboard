@@ -141,19 +141,6 @@
                                     <action selector="updateEditor:" destination="Byd-Lb-sbk" eventType="touchUpInside" id="nUF-fK-5gq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3C-st-028">
-                                <rect key="frame" x="236" y="599" width="139" height="48"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="zrw-gx-Te2" kind="popoverPresentation" popoverAnchorView="r3C-st-028" id="UPf-Tn-VDx">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQp-pl-jhm">
                                 <rect key="frame" x="25" y="599" width="119" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -181,23 +168,39 @@
                                     <action selector="updateEditor:" destination="Byd-Lb-sbk" eventType="editingDidEndOnExit" id="uVK-jy-jNl"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3C-st-028">
+                                <rect key="frame" x="228" y="599" width="139" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="zrw-gx-Te2" kind="popoverPresentation" popoverAnchorView="r3C-st-028" id="UPf-Tn-VDx">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8hH-fJ-vOz" firstAttribute="leading" secondItem="UXR-qa-rUh" secondAttribute="leading" id="0wu-k0-IdB"/>
                             <constraint firstItem="8hH-fJ-vOz" firstAttribute="top" secondItem="Xzh-BV-uYu" secondAttribute="top" id="1ym-O1-A8g"/>
                             <constraint firstItem="laH-PO-h5W" firstAttribute="top" secondItem="Jou-2e-sdx" secondAttribute="bottom" constant="8" symbolic="YES" id="6mt-1r-k5z"/>
+                            <constraint firstItem="grQ-PD-5ag" firstAttribute="top" secondItem="r3C-st-028" secondAttribute="bottom" constant="20" id="7Ui-Hc-fjn"/>
                             <constraint firstItem="grQ-PD-5ag" firstAttribute="top" secondItem="rQp-pl-jhm" secondAttribute="bottom" constant="20" id="Bl5-5f-EkX"/>
                             <constraint firstItem="laH-PO-h5W" firstAttribute="leading" secondItem="Xzh-BV-uYu" secondAttribute="leadingMargin" constant="86" id="C2g-dq-L4n"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r3C-st-028" secondAttribute="trailing" constant="-9" id="CIe-zC-B6f"/>
                             <constraint firstAttribute="centerX" secondItem="Jou-2e-sdx" secondAttribute="centerX" constant="0.5" id="D18-QJ-wvM"/>
                             <constraint firstItem="grQ-PD-5ag" firstAttribute="top" secondItem="r3C-st-028" secondAttribute="bottom" constant="20" id="D75-8O-PNn"/>
                             <constraint firstItem="Q0j-M5-Fje" firstAttribute="top" secondItem="UXR-qa-rUh" secondAttribute="bottom" constant="86" id="Iyw-5W-aio"/>
                             <constraint firstItem="laH-PO-h5W" firstAttribute="top" secondItem="UXR-qa-rUh" secondAttribute="bottom" constant="183" id="JGE-oh-Pg5"/>
                             <constraint firstItem="8hH-fJ-vOz" firstAttribute="leading" secondItem="Xzh-BV-uYu" secondAttribute="leading" id="LJL-XL-9lk"/>
                             <constraint firstItem="8hH-fJ-vOz" firstAttribute="trailing" secondItem="r3C-st-028" secondAttribute="trailing" id="Lim-NG-Huh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r3C-st-028" secondAttribute="trailing" constant="-8" id="Ouo-Lo-Sh0"/>
                             <constraint firstAttribute="bottomMargin" secondItem="8hH-fJ-vOz" secondAttribute="bottom" constant="-13" id="Rey-pr-KEt"/>
                             <constraint firstItem="Q0j-M5-Fje" firstAttribute="top" secondItem="UXR-qa-rUh" secondAttribute="bottom" constant="86" id="WTh-e6-fJH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="r3C-st-028" secondAttribute="trailing" constant="-16" id="Xg4-LZ-Tj6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r3C-st-028" secondAttribute="trailing" constant="-9" id="Xg4-LZ-Tj6"/>
                             <constraint firstItem="8hH-fJ-vOz" firstAttribute="centerX" secondItem="Q0j-M5-Fje" secondAttribute="centerX" id="b7O-qO-S8I"/>
                             <constraint firstItem="laH-PO-h5W" firstAttribute="centerX" secondItem="Jou-2e-sdx" secondAttribute="centerX" id="dNa-QZ-ghh"/>
                             <constraint firstItem="r3C-st-028" firstAttribute="leading" secondItem="Xzh-BV-uYu" secondAttribute="leadingMargin" constant="220" id="e3B-bp-pc5"/>
@@ -213,12 +216,17 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="0wu-k0-IdB"/>
+                                <exclude reference="Lim-NG-Huh"/>
                                 <exclude reference="Iyw-5W-aio"/>
                                 <exclude reference="D18-QJ-wvM"/>
                                 <exclude reference="hx8-kq-qET"/>
                                 <exclude reference="rzG-2u-7PU"/>
                                 <exclude reference="JGE-oh-Pg5"/>
                                 <exclude reference="s9I-ap-FHi"/>
+                                <exclude reference="CIe-zC-B6f"/>
+                                <exclude reference="Xg4-LZ-Tj6"/>
+                                <exclude reference="e3B-bp-pc5"/>
+                                <exclude reference="D75-8O-PNn"/>
                             </mask>
                         </variation>
                     </view>
@@ -309,6 +317,6 @@
         <image name="where" width="477" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hUP-8i-93N"/>
+        <segue reference="UPf-Tn-VDx"/>
     </inferredMetricsTieBreakers>
 </document>
