@@ -43,9 +43,16 @@
 }
 
 - (IBAction)resetPW:(id)sender {
-    NSLog(@"yep");
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
-    [_signup setHidden:false];
-    [_nextButton setHidden:true];
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"username"]) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"defaultuser" forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [_signup setHidden:true];
+        [_nextButton setHidden:false];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+        [_signup setHidden:false];
+        [_nextButton setHidden:true];
+    }
 }
 @end

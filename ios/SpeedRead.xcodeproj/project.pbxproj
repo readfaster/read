@@ -49,8 +49,6 @@
 		BDD5B72919E1B0680043D8A2 /* UNIUrlConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5B70D19E1B0680043D8A2 /* UNIUrlConnection.m */; };
 		BDD5B82019E1BEB40043D8A2 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5B81F19E1BEB40043D8A2 /* DropboxSDK.framework */; };
 		BDD5B82119E1BEB50043D8A2 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5B81F19E1BEB40043D8A2 /* DropboxSDK.framework */; };
-		BDD5B82419E1BFA90043D8A2 /* DropboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5B82319E1BFA90043D8A2 /* DropboxViewController.m */; };
-		BDD5B82519E1BFA90043D8A2 /* DropboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5B82319E1BFA90043D8A2 /* DropboxViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -156,8 +154,6 @@
 		BDD5B70C19E1B0680043D8A2 /* UNIUrlConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNIUrlConnection.h; sourceTree = "<group>"; };
 		BDD5B70D19E1B0680043D8A2 /* UNIUrlConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNIUrlConnection.m; sourceTree = "<group>"; };
 		BDD5B81F19E1BEB40043D8A2 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
-		BDD5B82219E1BFA90043D8A2 /* DropboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxViewController.h; sourceTree = "<group>"; };
-		BDD5B82319E1BFA90043D8A2 /* DropboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,8 +216,6 @@
 				BD45A06A19E13C15006555A7 /* RegisterViewController.m */,
 				BD9B10CC19E18B6000C5A42E /* StoriesViewController.h */,
 				BD9B10CD19E18B6000C5A42E /* StoriesViewController.m */,
-				BDD5B82219E1BFA90043D8A2 /* DropboxViewController.h */,
-				BDD5B82319E1BFA90043D8A2 /* DropboxViewController.m */,
 				BD45A04D19E13B99006555A7 /* Main.storyboard */,
 				BD45A05019E13B99006555A7 /* Images.xcassets */,
 				BD45A05219E13B99006555A7 /* LaunchScreen.xib */,
@@ -476,7 +470,6 @@
 				BD45A04619E13B99006555A7 /* main.m in Sources */,
 				BD45A06B19E13C15006555A7 /* RegisterViewController.m in Sources */,
 				BDD5B70E19E1B0680043D8A2 /* Base64.m in Sources */,
-				BDD5B82419E1BFA90043D8A2 /* DropboxViewController.m in Sources */,
 				BDD5B71419E1B0680043D8A2 /* UNISimpleRequest.m in Sources */,
 				BDD5B71219E1B0680043D8A2 /* UNIBodyRequest.m in Sources */,
 				BDD5B72019E1B0680043D8A2 /* UNIHTTPClientHelper.m in Sources */,
@@ -511,7 +504,6 @@
 				BDD5B71D19E1B0680043D8A2 /* UNIHTTPStringResponse.m in Sources */,
 				BDD5B71119E1B0680043D8A2 /* UNIBaseRequest.m in Sources */,
 				BDD5B71B19E1B0680043D8A2 /* UNIHTTPResponse.m in Sources */,
-				BDD5B82519E1BFA90043D8A2 /* DropboxViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

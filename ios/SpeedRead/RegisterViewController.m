@@ -44,9 +44,8 @@
     NSLog(@"%d", code);
     if (code == 200) {
         NSLog(@"Success");
-        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        [prefs setValue:_username.text forKey:@"username"];
-        [prefs synchronize];
+        [[NSUserDefaults standardUserDefaults] setValue:_username.text forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [((HomeViewController *)self.presentingViewController).signup setHidden:true];
         [((HomeViewController *)self.presentingViewController).nextButton setHidden:false];
         [_nextButton setHidden:false];
