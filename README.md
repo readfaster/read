@@ -11,8 +11,8 @@ You can add things to Read later while browsing normally on your iOS or Android 
 
 ## Technologies
 
-Read uses [Readability](readability.com) to parse articles that it receives. It coordinates using a Django backend server. Frontend mobile applications are written for iOS, Android, and Glass.
+Read uses [Readability](https://readability.com) to parse articles that it receives. It coordinates using a Django backend server. Frontend mobile applications are written for iOS, Android, and Glass.
 
 ## About
 
-Read was created at the inaugural CalHacks by [Gurjit Singh](gurjitsinghw.com), [Paul Moulton](http://paul-moulton.com), [James Carr](jcarr.io), and [Allen Li](http://allen.li).
+Read was created at the inaugural CalHacks by [Gurjit Singh](http://gurjitsinghw.com), [Paul Moulton](http://paul-moulton.com), [James Carr](http://jcarr.io), and [Allen Li](http://allen.li).
