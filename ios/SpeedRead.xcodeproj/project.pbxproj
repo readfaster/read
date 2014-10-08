@@ -19,6 +19,7 @@
 		BD746B5519E1A37D00F8E63B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD746B5419E1A37D00F8E63B /* MainInterface.storyboard */; };
 		BD746B5819E1A37D00F8E63B /* SR.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BD746B4D19E1A37D00F8E63B /* SR.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BD9B10CE19E18B6000C5A42E /* StoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9B10CD19E18B6000C5A42E /* StoriesViewController.m */; };
+		BD9D65D819E3C257006A99B6 /* DBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9D65D719E3C257006A99B6 /* DBViewController.m */; };
 		BDD5B70E19E1B0680043D8A2 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5B6F019E1B0680043D8A2 /* Base64.m */; };
 		BDD5B70F19E1B0680043D8A2 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5B6F019E1B0680043D8A2 /* Base64.m */; };
 		BDD5B71019E1B0680043D8A2 /* UNIBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5B6F319E1B0680043D8A2 /* UNIBaseRequest.m */; };
@@ -124,6 +125,8 @@
 		BD746B5419E1A37D00F8E63B /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		BD9B10CC19E18B6000C5A42E /* StoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoriesViewController.h; sourceTree = "<group>"; };
 		BD9B10CD19E18B6000C5A42E /* StoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoriesViewController.m; sourceTree = "<group>"; };
+		BD9D65D619E3C257006A99B6 /* DBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBViewController.h; sourceTree = "<group>"; };
+		BD9D65D719E3C257006A99B6 /* DBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBViewController.m; sourceTree = "<group>"; };
 		BDD5B6EF19E1B0680043D8A2 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		BDD5B6F019E1B0680043D8A2 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		BDD5B6F219E1B0680043D8A2 /* UNIBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNIBaseRequest.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				BD45A06A19E13C15006555A7 /* RegisterViewController.m */,
 				BD9B10CC19E18B6000C5A42E /* StoriesViewController.h */,
 				BD9B10CD19E18B6000C5A42E /* StoriesViewController.m */,
+				BD9D65D619E3C257006A99B6 /* DBViewController.h */,
+				BD9D65D719E3C257006A99B6 /* DBViewController.m */,
 				BD45A04D19E13B99006555A7 /* Main.storyboard */,
 				BD45A05019E13B99006555A7 /* Images.xcassets */,
 				BD45A05219E13B99006555A7 /* LaunchScreen.xib */,
@@ -470,6 +475,7 @@
 				BD45A04619E13B99006555A7 /* main.m in Sources */,
 				BD45A06B19E13C15006555A7 /* RegisterViewController.m in Sources */,
 				BDD5B70E19E1B0680043D8A2 /* Base64.m in Sources */,
+				BD9D65D819E3C257006A99B6 /* DBViewController.m in Sources */,
 				BDD5B71419E1B0680043D8A2 /* UNISimpleRequest.m in Sources */,
 				BDD5B71219E1B0680043D8A2 /* UNIBodyRequest.m in Sources */,
 				BDD5B72019E1B0680043D8A2 /* UNIHTTPClientHelper.m in Sources */,

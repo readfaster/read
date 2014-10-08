@@ -65,6 +65,7 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+    [super viewDidLoad];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
@@ -76,8 +77,6 @@
     
     _SortedStories = [body JSONArray];
     _JSONStories = [body JSONObject];
-    
-    [super viewDidLoad];
 }
 
 

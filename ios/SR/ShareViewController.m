@@ -45,6 +45,17 @@
     [dict setValue:_theUrl.absoluteString forKey:@"url"];
     [dict setValue:_username forKey:@"username"];
     
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"dbupload"]) {
+        NSArray *uploads = [[NSUserDefaults standardUserDefaults] objectForKey:@"dbupload"];
+        [uploads arrayByAddingObject:_theUrl];
+        [[NSUserDefaults standardUserDefaults] setObject:uploads forKey:@"dbupload"];
+    }
+    else {
+        NSArray *uploads = [NSArray init];
+        [uploads arrayByAddingObject:_theUrl];
+        [[NSUserDefaults standardUserDefaults] setObject:uploads forKey:@"dbupload"];
+    }
+    
     NSError *error;
     NSData *postdata = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
     [request setHTTPBody:postdata];
